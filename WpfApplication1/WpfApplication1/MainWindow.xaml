@@ -28,7 +28,7 @@
         <TextBox x:Name="GroupName" Grid.Column="2" HorizontalAlignment="Center" Height="34" Margin="93,178,134,0" TextWrapping="Wrap" Text="Enter Group Name.." VerticalAlignment="Top" Width="194" Grid.ColumnSpan="5" GotFocus="GroupNameBoxGotFocus" TextChanged="GroupName_TextChanged" Background="#FFF7F6F6" Foreground="#FF999494" TextAlignment="Center" FontSize="18.667"/>
         <Button x:Name="LikeButtonFull"  Content="Like Button" Grid.Column="2" HorizontalAlignment="Left" Margin="46,736,0,0" VerticalAlignment="Top" Width="75" Click="ClickLikeButton" Visibility="Hidden"/>
         <TextBlock x:Name="ObjectID" Grid.Column="2" HorizontalAlignment="Left" Margin="121,758,0,0" TextWrapping="Wrap" Text="ObjectID" VerticalAlignment="Top" Grid.ColumnSpan="5" Width="166" Height="37" Foreground="White" FontSize="18.667"/>
-        <Image x:Name="EmptyHeart" Source="E:\Google Drive\Tok\WinTOK\Resources\EmptyHeart.png" Grid.Column="2" HorizontalAlignment="Left" Height="59" Margin="10,736,0,0" VerticalAlignment="Top" Width="36" MouseDown="Image_MouseDown" Visibility="Visible" IsEnabled="True"/>
+        <Image x:Name="EmptyHeart" Source="E:\Google Drive\Tok\WinTOK\Resources\EmptyHeart.png" Grid.Column="2" HorizontalAlignment="Left" Height="59" Margin="10,736,0,0" VerticalAlignment="Top" Width="36" MouseDown="Image_MouseDown" Visibility="Hidden" IsEnabled="True"/>
         <Image x:Name="FullHeart" Source="E:\Google Drive\Tok\WinTOK\Resources\FullHeart.png" Grid.Column="2" HorizontalAlignment="Left" Height="59" Margin="10,736,0,0" VerticalAlignment="Top" Width="36" MouseDown="Image_MouseDown" Visibility="Hidden" IsEnabled="False"/>
     </Grid>
 </Window>

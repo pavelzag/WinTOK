@@ -7,6 +7,9 @@ using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using System.IO;
 using System.Net;
+using System.Windows;
+
+
 
 namespace WinTOK
 {
@@ -14,6 +17,7 @@ namespace WinTOK
     {
         public static List<string> ParseCall(string sGroupName = "")
         {
+            //EmptyHeart.Visibility = Visibility.Visible;
             //System.Net.WebRequest request = WebRequest.Create("https://api.parse.com/1/classes/TOK/CSHgwDuhg8?");
             System.Net.WebRequest request = WebRequest.Create("https://api.parse.com/1/functions/getRandomTOK");
             request.ContentType = "application/json";
@@ -53,7 +57,6 @@ namespace WinTOK
             request.Method = "POST";
             request.Headers["X-Parse-Application-Id"] = Variables.APPLICATION_ID;
             request.Headers["X-Parse-REST-API-Key"] = Variables.API_KEY;
-            //string postData = "{\"group\":\"" + sGroupName + "\", \"objectId\":\"" + sObjectID + "\"   }";
             byte[] data2 = Encoding.ASCII.GetBytes(sPostData);
             request.ContentLength = data2.Length;
             Stream requestStream = request.GetRequestStream();
@@ -69,7 +72,6 @@ namespace WinTOK
             public string name { get; set; }
             public string url { get; set; }
         }
-        //ssssasdasd
         public class Result
         {
             public string __type { get; set; }

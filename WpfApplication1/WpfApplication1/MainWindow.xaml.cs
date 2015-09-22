@@ -30,14 +30,12 @@ namespace WinTOK
         public MainWindow()
         {
             InitializeComponent();
-
+            EmptyHeart.Visibility = Visibility.Hidden;
         }
 
         private void TOKButton(object sender, RoutedEventArgs e)
         {
-            //EmptyHeart.Visibility = Visibility.Visible;
-            //FullHeart.Visibility = Visibility.Invisible;
-            //LikeButtonFull.Visibility = Visibility.Visible;
+            FullHeart.Visibility = Visibility.Hidden;
             sGroupName = GroupName.Text;
             if (sGroupName == "Enter Group Name..")
                 sGroupName = "";
@@ -52,14 +50,19 @@ namespace WinTOK
             MediaContent.Play();
             LocationBlock.Text = "The TOK is coming from: " + sLocation;
             GroupBlock.Text = "The Group is: " + sGroupName;
+            ObjectID.Text = sObjectID;
+            EmptyHeart.Visibility = Visibility.Visible;
         }
 
         private void ClickLikeButton(object sender, RoutedEventArgs e)
         {
             //sObjectID = "7etmIXYJmW";
             //sGroupName = "altizahen";
-            Like.LikeTOK(sObjectID, sGroupName);
-            ObjectID.Text = sObjectID;
+            if (sObjectID != null)
+            {
+                Like.LikeTOK(sObjectID, sGroupName);
+                ObjectID.Text = sObjectID;
+            }
         }
 
         private void SelectGroup(object sender, RoutedEventArgs e)
@@ -82,7 +85,8 @@ namespace WinTOK
         private void Image_MouseDown(object sender, MouseButtonEventArgs e)
         {
             ClickLikeButton(sender, e);
-            EmptyHeart.Visibility = Visibility.Hidden;
+            //EmptyHeart.   ility = Visibility.Hidden;
+            if(sObjectID != null)
             FullHeart.Visibility = Visibility.Visible;
         }
 
