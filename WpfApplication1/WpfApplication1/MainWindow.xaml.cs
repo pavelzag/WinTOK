@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfApplication1
+namespace WinTOK
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -25,6 +25,7 @@ namespace WpfApplication1
         public static string sURL;
         public static string sLocation;
         public static string sGroupName;
+        public static string sObjectID;
 
         public MainWindow()
         {
@@ -34,6 +35,9 @@ namespace WpfApplication1
 
         private void TOKButton(object sender, RoutedEventArgs e)
         {
+            //EmptyHeart.Visibility = Visibility.Visible;
+            //FullHeart.Visibility = Visibility.Invisible;
+            //LikeButtonFull.Visibility = Visibility.Visible;
             sGroupName = GroupName.Text;
             if (sGroupName == "Enter Group Name..")
                 sGroupName = "";
@@ -41,12 +45,21 @@ namespace WpfApplication1
             sURL = ParseData[0];
             sLocation = ParseData[1];
             sGroupName = ParseData[2];
+            sObjectID = ParseData[3];
             if (sGroupName == null)
                 sGroupName = "Group Zero";
-            LocationBlock.Text = "The TOK is coming from: " + sLocation;
-            GroupBlock.Text = "The Group is: " + sGroupName;
             MediaContent.Source = new Uri(sURL, UriKind.Absolute);
             MediaContent.Play();
+            LocationBlock.Text = "The TOK is coming from: " + sLocation;
+            GroupBlock.Text = "The Group is: " + sGroupName;
+        }
+
+        private void ClickLikeButton(object sender, RoutedEventArgs e)
+        {
+            //sObjectID = "7etmIXYJmW";
+            //sGroupName = "altizahen";
+            Like.LikeTOK(sObjectID, sGroupName);
+            ObjectID.Text = sObjectID;
         }
 
         private void SelectGroup(object sender, RoutedEventArgs e)
@@ -66,10 +79,12 @@ namespace WpfApplication1
 
         }
 
+        private void Image_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ClickLikeButton(sender, e);
+            EmptyHeart.Visibility = Visibility.Hidden;
+            FullHeart.Visibility = Visibility.Visible;
+        }
 
-        //private void Insert_the_group_name_TextChanged(object sender, TextChangedEventArgs e)
-        //{
-
-        //}
     }
 }

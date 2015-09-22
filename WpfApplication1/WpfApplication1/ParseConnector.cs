@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 using System.IO;
 using System.Net;
 
-namespace WpfApplication1
+namespace WinTOK
 {
     class ParseConnector
     {
@@ -18,8 +18,8 @@ namespace WpfApplication1
             System.Net.WebRequest request = WebRequest.Create("https://api.parse.com/1/functions/getRandomTOK");
             request.ContentType = "application/json";
             request.Method = "POST";
-            request.Headers["X-Parse-Application-Id"] = "8OP2Co8lIZkJDhY8ZZ7o0nkjb5CVNotrPuTW4kF0";
-            request.Headers["X-Parse-REST-API-Key"] = "lAAPulh97kY3WZd87D2iowPuIN8qCPPupfPkIO1Q";
+            request.Headers["X-Parse-Application-Id"] = Variables.APPLICATION_ID;
+            request.Headers["X-Parse-REST-API-Key"] = Variables.API_KEY;
             string postData = "{\"group\":\"" + sGroupName + "\"}";
             byte[] data2 = Encoding.ASCII.GetBytes(postData);
             request.ContentLength = data2.Length;
@@ -32,21 +32,36 @@ namespace WpfApplication1
             var rawJson = new StreamReader(response.GetResponseStream()).ReadToEnd();
             string json = JObject.Parse(rawJson).ToString();  //Turns your raw string into a key value lookup
             var data = JsonSerializer.DeserializeData<RootObject>(json);
-
-
             var url = data.result.audio_file.url;
             var location = data.result.location;
             var group = data.result.group;
+            var objectId = data.result.objectId;
 
             List<string> ParseData = new List<string>();
 
             ParseData.Add(url);
             ParseData.Add(location);
             ParseData.Add(group);
+            ParseData.Add(objectId);
             return ParseData;
-            //var location = data.Location;
         }
 
+        public static void DefaultConnector(string sParseMethod = "getRandomTOK", string sPostData = "")
+        {
+            System.Net.WebRequest request = WebRequest.Create("https://api.parse.com/1/functions/" + sParseMethod);
+            request.ContentType = "application/json";
+            request.Method = "POST";
+            request.Headers["X-Parse-Application-Id"] = Variables.APPLICATION_ID;
+            request.Headers["X-Parse-REST-API-Key"] = Variables.API_KEY;
+            //string postData = "{\"group\":\"" + sGroupName + "\", \"objectId\":\"" + sObjectID + "\"   }";
+            byte[] data2 = Encoding.ASCII.GetBytes(sPostData);
+            request.ContentLength = data2.Length;
+            Stream requestStream = request.GetRequestStream();
+            requestStream.Write(data2, 0, data2.Length);
+            requestStream.Close();
+            HttpWebResponse myHttpWebResponse = (HttpWebResponse)request.GetResponse();
+            string status = myHttpWebResponse.StatusCode.ToString();
+        }
 
         public class AudioFile
         {
@@ -80,7 +95,7 @@ namespace WpfApplication1
                 {
                     return Newtonsoft.Json.JsonConvert.DeserializeObject<T>(jsonData);
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     //log exception if required
                     return default(T);
