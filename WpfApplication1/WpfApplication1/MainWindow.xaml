@@ -21,7 +21,7 @@
             <ColumnDefinition Width="15*"/>
             <ColumnDefinition Width="125*"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="button" Content="Play Random Tok" Opacity="0" HorizontalAlignment="Left" Margin="10,274,0,0" VerticalAlignment="Top" Width="439" Click="TOKButton" Grid.Column="1" Grid.ColumnSpan="6" Height="244"/>
+        <!--<Button x:Name="button" Content="Play Random Tok" Opacity="0" HorizontalAlignment="Left" Margin="10,274,0,0" VerticalAlignment="Top" Width="439" Click="TOKButton" Grid.Column="1" Grid.ColumnSpan="6" Height="244"/>-->
         <MediaElement Name="MediaContent" LoadedBehavior="Manual" Grid.ColumnSpan="7" Margin="0,0,-20,0" />
         <TextBlock x:Name="LocationBlock" HorizontalAlignment="Left" Margin="1,647,0,0" TextWrapping="Wrap" Text="Press the TOK button" VerticalAlignment="Top" Grid.Column="2" RenderTransformOrigin="9.343,0.53" Width="401" Grid.ColumnSpan="5" Height="30" Foreground="#FF77BCF5" FontSize="18.667" TextAlignment="Center"/>
         <TextBlock x:Name="GroupBlock" HorizontalAlignment="Left" Margin="19,682,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1" RenderTransformOrigin="9.343,0.53" Width="411" Grid.ColumnSpan="6" Height="30" Foreground="#FF77BCF5" FontSize="18.667" TextAlignment="Center"/>
@@ -30,5 +30,6 @@
         <TextBlock x:Name="ObjectID" Grid.Column="2" HorizontalAlignment="Left" Margin="121,758,0,0" TextWrapping="Wrap" Text="ObjectID" VerticalAlignment="Top" Grid.ColumnSpan="5" Width="166" Height="37" Foreground="White" FontSize="18.667"/>
         <Image x:Name="EmptyHeart" Source="E:\Google Drive\Tok\WinTOK\Resources\EmptyHeart.png" Grid.Column="2" HorizontalAlignment="Left" Height="59" Margin="10,736,0,0" VerticalAlignment="Top" Width="36" MouseDown="Image_MouseDown" Visibility="Hidden" IsEnabled="True"/>
         <Image x:Name="FullHeart" Source="E:\Google Drive\Tok\WinTOK\Resources\FullHeart.png" Grid.Column="2" HorizontalAlignment="Left" Height="59" Margin="10,736,0,0" VerticalAlignment="Top" Width="36" MouseDown="Image_MouseDown" Visibility="Hidden" IsEnabled="False"/>
+        <Image x:Name="PlayBTN" Source="E:\Google Drive\Tok\WinTOK\Resources\PlayBTN.png" Grid.ColumnSpan="5" Grid.Column="2" HorizontalAlignment="Left" Height="134" Margin="121,296,0,0" VerticalAlignment="Top" Width="152" MouseDown="PlayBTN_MouseDown"/>
     </Grid>
 </Window>
