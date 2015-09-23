@@ -33,32 +33,6 @@ namespace WinTOK
             EmptyHeart.Visibility = Visibility.Hidden;
         }
 
-        //private void TOKButton(object sender, RoutedEventArgs e)
-        //{
-        //    FullHeart.Visibility = Visibility.Hidden;
-        //    sGroupName = GroupName.Text;
-        //    if (sGroupName == "Enter Group Name..")
-        //        sGroupName = "";
-        //    List<string> ParseData = ParseConnector.ParseCall(sGroupName);
-        //    sURL = ParseData[0];
-        //    sLocation = ParseData[1];
-        //    sGroupName = ParseData[2];
-        //    sObjectID = ParseData[3];
-        //    string sLikedObjects = Like.ReadLikedText();
-        //    if (!Like.CheckIfLiked(sObjectID, sLikedObjects))
-        //        EmptyHeart.Visibility = Visibility.Visible;
-        //    else
-        //        FullHeart.Visibility = Visibility.Visible;
-        //    if (sGroupName == null)
-        //        sGroupName = "Group Zero";
-        //    MediaContent.Source = new Uri(sURL, UriKind.Absolute);
-        //    MediaContent.Play();
-        //    LocationBlock.Text = "The TOK is coming from: " + sLocation;
-        //    GroupBlock.Text = "The Group is: " + sGroupName;
-        //    ObjectID.Text = sObjectID;
-        //    EmptyHeart.Visibility = Visibility.Visible;
-        //}
-
         private void PlayBTN_MouseDown(object sender, MouseButtonEventArgs e)
         {
             FullHeart.Visibility = Visibility.Hidden;
@@ -87,8 +61,6 @@ namespace WinTOK
 
         private void ClickLikeButton(object sender, RoutedEventArgs e)
         {
-            //sObjectID = "7etmIXYJmW";
-            //sGroupName = "altizahen";
             if (sObjectID != null)
             {
                 Like.LikeTOK(sObjectID, sGroupName);

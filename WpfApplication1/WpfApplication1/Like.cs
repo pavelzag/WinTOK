@@ -14,7 +14,6 @@ namespace WinTOK
     {
         public static void LikeTOK(string sObjectID, string sGroupName)
         {
-            //string sStatus = "";
             if (sGroupName == "Group Zero")
                 sGroupName = "";
             string sPostData = "{\"group\":\"" + sGroupName + "\", \"objectId\":\"" + sObjectID + "\"   }";
@@ -48,7 +47,6 @@ namespace WinTOK
             string path = "1.txt";
             string fullPath = System.IO.Path.GetFullPath(path);
             return File.ReadAllText(fullPath);
-
         }
 
         public class LikedTOKS

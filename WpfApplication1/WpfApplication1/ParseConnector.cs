@@ -72,22 +72,58 @@ namespace WinTOK
             public string name { get; set; }
             public string url { get; set; }
         }
+
+        public class CreatedAt
+        {
+            public string __type { get; set; }
+            public string iso { get; set; }
+        }
+
+        public class UpdatedAt
+        {
+            public string __type { get; set; }
+            public string iso { get; set; }
+        }
+
         public class Result
         {
             public string __type { get; set; }
             public AudioFile audio_file { get; set; }
             public string className { get; set; }
-            public string createdAt { get; set; }
+            public CreatedAt createdAt { get; set; }
             public string group { get; set; }
             public string location { get; set; }
             public string objectId { get; set; }
-            public string updatedAt { get; set; }
+            public UpdatedAt updatedAt { get; set; }
         }
 
         public class RootObject
         {
             public Result result { get; set; }
         }
+
+        //public class AudioFile
+        //{
+        //    public string __type { get; set; }
+        //    public string name { get; set; }
+        //    public string url { get; set; }
+        //}
+        //public class Result
+        //{
+        //    public string __type { get; set; }
+        //    public AudioFile audio_file { get; set; }
+        //    public string className { get; set; }
+        //    public string createdAt { get; set; }
+        //    public string group { get; set; }
+        //    public string location { get; set; }
+        //    public string objectId { get; set; }
+        //    public string updatedAt { get; set; }
+        //}
+
+        //public class RootObject
+        //{
+        //    public Result result { get; set; }
+        //}
 
         public class JsonSerializer
         {
