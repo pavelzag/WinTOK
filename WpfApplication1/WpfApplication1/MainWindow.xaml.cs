@@ -13,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using NAudio.Wave;
+
 
 namespace WinTOK
 {
@@ -26,11 +28,17 @@ namespace WinTOK
         public static string sLocation;
         public static string sGroupName;
         public static string sObjectID;
+        NAudio.Wave.WaveIn sourceStream = null;
+        NAudio.Wave.DirectSoundOut waveOut = null;
+        NAudio.Wave.WaveFileWriter waveWriter = null;
+
+
 
         public MainWindow()
         {
             InitializeComponent();
             EmptyHeart.Visibility = Visibility.Hidden;
+            Record.Visibility = Visibility.Visible;
         }
 
         private void PlayBTN_MouseDown(object sender, MouseButtonEventArgs e)
@@ -85,13 +93,67 @@ namespace WinTOK
 
         }
 
-        private void Image_MouseDown(object sender, MouseButtonEventArgs e)
+        private void EmptyHeart_MouseDown(object sender, MouseButtonEventArgs e)
         {
             ClickLikeButton(sender, e);
             //EmptyHeart.   ility = Visibility.Hidden;
-            if(sObjectID != null)
-            FullHeart.Visibility = Visibility.Visible;
+            if (sObjectID != null)
+                FullHeart.Visibility = Visibility.Visible;
         }
 
+        private void FullHeart_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ClickLikeButton(sender, e);
+            //EmptyHeart.   ility = Visibility.Hidden;
+            if (sObjectID != null)
+                EmptyHeart.Visibility = Visibility.Visible;
+        }
+
+        private void sourceStream_DataAvailable(object sender, NAudio.Wave.WaveInEventArgs e)
+        {
+            if (waveWriter == null) return;
+            waveWriter.WriteData(e.Buffer, 0, e.BytesRecorded);
+            waveWriter.Flush();
+        }
+
+        private void Record_Click(object sender, RoutedEventArgs e)
+        {
+            string sPath = @"C:\Users\Pavel\Desktop\delete\";
+            string sRandom = "hi.wav";
+
+            //int deviceNumber = sourceList.SelectedItems[0].Index;
+            int deviceNumber = 0;
+
+            sourceStream = new NAudio.Wave.WaveIn();
+            sourceStream.DeviceNumber = deviceNumber;
+            sourceStream.WaveFormat = new NAudio.Wave.WaveFormat(44100, NAudio.Wave.WaveIn.GetCapabilities(deviceNumber).Channels);
+
+            sourceStream.DataAvailable += new EventHandler<NAudio.Wave.WaveInEventArgs>(sourceStream_DataAvailable);
+            //waveWriter = new NAudio.Wave.WaveFileWriter(save.FileName, sourceStream.WaveFormat);
+            waveWriter = new NAudio.Wave.WaveFileWriter(sPath + sRandom, sourceStream.WaveFormat);
+
+            sourceStream.StartRecording();
+        }
+
+        private void Stop_Click(object sender, RoutedEventArgs e)
+        {
+            if (waveOut != null)
+            {
+                waveOut.Stop();
+                waveOut.Dispose();
+                waveOut = null;
+            }
+            if (sourceStream != null)
+            {
+                sourceStream.StopRecording();
+                sourceStream.Dispose();
+                sourceStream = null;
+            }
+            if (waveWriter != null)
+            {
+                waveWriter.Dispose();
+                waveWriter = null;
+            }
+        }
     }
 }
