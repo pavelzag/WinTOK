@@ -17,6 +17,7 @@ namespace WinTOK
     {
         public static List<string> ParseCall(string sGroupName = "")
         {
+            List<string> ParseData = new List<string>();
             //System.Net.WebRequest request = WebRequest.Create("https://api.parse.com/1/classes/TOK/CSHgwDuhg8?");
             System.Net.WebRequest request = WebRequest.Create("https://api.parse.com/1/functions/getRandomTOK");
             request.ContentType = "application/json";
@@ -34,12 +35,13 @@ namespace WinTOK
             var response = (HttpWebResponse)request.GetResponse();
             var rawJson = new StreamReader(response.GetResponseStream()).ReadToEnd();
             string json = JObject.Parse(rawJson).ToString();  //Turns your raw string into a key value lookup
+            if (json.Contains("NO_TOKS_FOUND"))
+                return ParseData;
             var data = JsonSerializer.DeserializeData<RootObject>(json);
             var url = data.result.audio_file.url;
             var location = data.result.location;
             var group = data.result.group;
             var objectId = data.result.objectId;
-            List<string> ParseData = new List<string>();
             ParseData.Add(url);
             ParseData.Add(location);
             ParseData.Add(group);

@@ -32,5 +32,6 @@
         <Image x:Name="PlayBTN" Source="E:\Google Drive\Tok\WinTOK\Resources\PlayBTN.png" Grid.ColumnSpan="5" Grid.Column="2" HorizontalAlignment="Left" Height="134" Margin="135,296,0,0" VerticalAlignment="Top" Width="152" MouseDown="PlayBTN_MouseDown"/>
         <Button x:Name="Record" Content="Record" Grid.Column="2" HorizontalAlignment="Left" Margin="93,118,0,0" VerticalAlignment="Top" Width="90" RenderTransformOrigin="-2.367,-1.068" Grid.ColumnSpan="2" Height="30" IsEnabled="True" Click="Record_Click" />
         <Button x:Name="Stop"   Content="Stop" Grid.ColumnSpan="4"  Grid.Column="3" HorizontalAlignment="Left" Margin="52,118,0,0" VerticalAlignment="Top" Width="90" Height="30" Click="Stop_Click"/>
+        <TextBlock x:Name="TOKIndicator" Grid.Column="2" HorizontalAlignment="Left" Margin="70,604,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Grid.ColumnSpan="5" Width="300" FontSize="18.667" Foreground="#FF77BCF5" RenderTransformOrigin="0.479,0.44"/>
     </Grid>
 </Window>

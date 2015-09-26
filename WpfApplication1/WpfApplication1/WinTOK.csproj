@@ -85,6 +85,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Convert.cs" />
+    <Compile Include="Play.cs" />
     <Compile Include="Recording.cs" />
     <Compile Include="UploadFile.cs" />
     <Compile Include="Variables.cs" />
