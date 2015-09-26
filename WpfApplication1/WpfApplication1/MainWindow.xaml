@@ -30,7 +30,7 @@
         <Image x:Name="EmptyHeart" Source="E:\Google Drive\Tok\WinTOK\Resources\EmptyHeart.png" Grid.Column="2" HorizontalAlignment="Left" Height="59" Margin="10,487,0,0" VerticalAlignment="Top" Width="36" MouseDown="EmptyHeart_MouseDown" Visibility="Hidden" IsEnabled="True" RenderTransformOrigin="0.292,-3.788"/>
         <Image x:Name="FullHeart" Source="E:\Google Drive\Tok\WinTOK\Resources\FullHeart.png" Grid.Column="2" HorizontalAlignment="Left" Height="59" Margin="10,487,0,0" VerticalAlignment="Top" Width="36" MouseDown="FullHeart_MouseDown" Visibility="Hidden" IsEnabled="False"/>
         <Image x:Name="PlayBTN" Source="E:\Google Drive\Tok\WinTOK\Resources\PlayBTN.png" Grid.ColumnSpan="5" Grid.Column="2" HorizontalAlignment="Left" Height="134" Margin="135,296,0,0" VerticalAlignment="Top" Width="152" MouseDown="PlayBTN_MouseDown"/>
-        <Button x:Name="Record" Content="Record" Grid.Column="2" HorizontalAlignment="Left" Margin="93,118,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="-2.367,-1.068" Grid.ColumnSpan="2" Height="30" IsEnabled="True" Click="Record_Click" />
-        <Button x:Name="Stop"   Content="Stop" Grid.ColumnSpan="3"  Grid.Column="4" HorizontalAlignment="Left" Margin="0,118,0,0" VerticalAlignment="Top" Width="84" Height="30" Click="Stop_Click"/>
+        <Button x:Name="Record" Content="Record" Grid.Column="2" HorizontalAlignment="Left" Margin="93,118,0,0" VerticalAlignment="Top" Width="90" RenderTransformOrigin="-2.367,-1.068" Grid.ColumnSpan="2" Height="30" IsEnabled="True" Click="Record_Click" />
+        <Button x:Name="Stop"   Content="Stop" Grid.ColumnSpan="4"  Grid.Column="3" HorizontalAlignment="Left" Margin="52,118,0,0" VerticalAlignment="Top" Width="90" Height="30" Click="Stop_Click"/>
     </Grid>
 </Window>
