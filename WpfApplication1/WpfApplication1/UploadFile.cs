@@ -12,7 +12,7 @@ namespace WinTOK
 {
     class UploadFile
     {
-        public static void UploadTOKParse()
+        public static void UploadTOKParse(string sGroupName = "")
         {
             System.Net.WebRequest request = WebRequest.Create("https://api.parse.com/1/files/hi.wav");
             request.ContentType = "application/json";
@@ -35,17 +35,22 @@ namespace WinTOK
             string sName = data2.name;
             string sURL = data2.url;
             myHttpWebResponse.Close();
-            CreateParseObject(sName);
+            CreateParseObject(sName, sGroupName);
         }
 
-        public static void CreateParseObject(string sName = "soemthing")
+        public static void CreateParseObject(string sName = "soemthing", string sGroupName = "")
         {
-            System.Net.WebRequest request = WebRequest.Create("https://api.parse.com/1/classes/TOK");
+            string sTOKClass;
+            if (sGroupName == null)
+                sTOKClass = "TOK";
+            else
+                sTOKClass = "TOK_GROUPS";
+            System.Net.WebRequest request = WebRequest.Create("https://api.parse.com/1/classes/" + sTOKClass);
             request.ContentType = "application/json";
             request.Method = "POST";
             request.Headers["X-Parse-Application-Id"] = Variables.APPLICATION_ID;
             request.Headers["X-Parse-REST-API-Key"] = Variables.API_KEY;
-            string postData = "{\"audio_file\": {\"name\": " + "\"" + sName + "\"" + ",\"__type\": \"File\"}}";
+            string postData = "{\"audio_file\": {\"name\": " + "\"" + sName + "\"" + ",\"__type\": \"File\"}, \"group\":" + "\"" + sGroupName + "\" }";
             byte[] data = Encoding.ASCII.GetBytes(postData);
             request.ContentLength = postData.Length;
             Stream requestStream = request.GetRequestStream();

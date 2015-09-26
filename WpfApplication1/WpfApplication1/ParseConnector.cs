@@ -17,7 +17,6 @@ namespace WinTOK
     {
         public static List<string> ParseCall(string sGroupName = "")
         {
-            //EmptyHeart.Visibility = Visibility.Visible;
             //System.Net.WebRequest request = WebRequest.Create("https://api.parse.com/1/classes/TOK/CSHgwDuhg8?");
             System.Net.WebRequest request = WebRequest.Create("https://api.parse.com/1/functions/getRandomTOK");
             request.ContentType = "application/json";
@@ -40,9 +39,7 @@ namespace WinTOK
             var location = data.result.location;
             var group = data.result.group;
             var objectId = data.result.objectId;
-
             List<string> ParseData = new List<string>();
-
             ParseData.Add(url);
             ParseData.Add(location);
             ParseData.Add(group);
@@ -101,29 +98,6 @@ namespace WinTOK
         {
             public Result result { get; set; }
         }
-
-        //public class AudioFile
-        //{
-        //    public string __type { get; set; }
-        //    public string name { get; set; }
-        //    public string url { get; set; }
-        //}
-        //public class Result
-        //{
-        //    public string __type { get; set; }
-        //    public AudioFile audio_file { get; set; }
-        //    public string className { get; set; }
-        //    public string createdAt { get; set; }
-        //    public string group { get; set; }
-        //    public string location { get; set; }
-        //    public string objectId { get; set; }
-        //    public string updatedAt { get; set; }
-        //}
-
-        //public class RootObject
-        //{
-        //    public Result result { get; set; }
-        //}
 
         public class JsonSerializer
         {

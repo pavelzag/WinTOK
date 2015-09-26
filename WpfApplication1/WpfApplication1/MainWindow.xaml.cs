@@ -153,7 +153,7 @@ namespace WinTOK
             {
                 waveWriter.Dispose();
                 waveWriter = null;
-                UploadFile.UploadTOKParse();
+                UploadFile.UploadTOKParse(GroupName.Text);
             }
         }
 
