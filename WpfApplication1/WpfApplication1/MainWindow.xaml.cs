@@ -31,6 +31,7 @@ namespace WinTOK
         public static string sPath = @"C:\Users\Pavel\Desktop\delete\";
         public static string sFileName = "hi.wav";
         public static string sFullPath = sPath + sFileName;
+        public static bool isPTRClicked = false;
 
         NAudio.Wave.WaveIn sourceStream = null;
         NAudio.Wave.DirectSoundOut waveOut = null;
@@ -160,7 +161,7 @@ namespace WinTOK
                 waveWriter = null;
                 Convert.ConvertToAAC(sFullPath, sPath);
                 UploadFile.UploadTOKParse(GroupName.Text);
-                TOKIndicator.Text = "TOK has been sent";
+                TOKIndicator.Text = "TOK has been sent. ObjectID is: " + sObjectID;
             }
         }
 
@@ -189,5 +190,14 @@ namespace WinTOK
             EmptyHeart.Visibility = Visibility.Hidden;
         }
 
+        private void MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Record_Click(sender, e);
+        }
+
+        private void MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            Stop_Click(sender, e);
+        }
     }
 }
