@@ -12,6 +12,7 @@ namespace WinTOK
 {
     class UploadFile
     {
+        public static string sObjectID;
         public static void UploadTOKParse(string sGroupName = "")
         {
             System.Net.WebRequest request = WebRequest.Create("https://api.parse.com/1/files/hi.m4a");
@@ -38,7 +39,7 @@ namespace WinTOK
             CreateParseObject(sName, sGroupName);
         }
 
-        public static void CreateParseObject(string sName = "soemthing", string sGroupName = "")
+        public static void CreateParseObject(string sName = "soemthing", string sGroupName = "", string sObjectID = "")
         {
             string sTOKClass;
             string postData;
@@ -69,6 +70,9 @@ namespace WinTOK
             string status = myHttpWebResponse2.StatusCode.ToString();
             var response = (HttpWebResponse)request.GetResponse();
             var rawJson = new StreamReader(response.GetResponseStream()).ReadToEnd();
+            var data2 = JsonSerializer.DeserializeData<UploadResponceObject>(rawJson);
+            sObjectID = data2.objectId;
+            string sCreatedAt = data2.createdAt;
             string json = JObject.Parse(rawJson).ToString();  //Turns your raw string into a key value lookup
         }
 
@@ -76,6 +80,12 @@ namespace WinTOK
         {
             public string name { get; set; }
             public string url { get; set; }
+        }
+
+        public class UploadResponceObject
+        {
+            public string createdAt { get; set; }
+            public string objectId { get; set; }
         }
 
         public class JsonSerializer

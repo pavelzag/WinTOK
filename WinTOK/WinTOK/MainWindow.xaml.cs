@@ -161,7 +161,7 @@ namespace WinTOK
                 waveWriter = null;
                 Convert.ConvertToAAC(sFullPath, sPath);
                 UploadFile.UploadTOKParse(GroupName.Text);
-                TOKIndicator.Text = "TOK has been sent. ObjectID is: " + sObjectID;
+                TOKIndicator.Text = "TOK has been sent. ObjectID is: " + UploadFile.sObjectID;
             }
         }
 
