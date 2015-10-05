@@ -8,7 +8,7 @@
         Title="WinTOK" Height="835" Width="469"
         >
     <Window.Background>
-        <ImageBrush ImageSource="E:\Google Drive\Tok\WinTOK\Resources\Background.png"></ImageBrush>
+        <ImageBrush ImageSource="C:\Users\Pavel\Documents\Visual Studio 2015\Projects\TOKRepo\WinTOK\WinTOK\Resources\Background.png"></ImageBrush>
     </Window.Background>
 
     <Grid>
@@ -27,9 +27,9 @@
         <TextBlock x:Name="GroupBlock" HorizontalAlignment="Left" Margin="19,682,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1" RenderTransformOrigin="9.343,0.53" Width="411" Grid.ColumnSpan="6" Height="30" Foreground="#FF77BCF5" FontSize="18.667" TextAlignment="Center"/>
         <TextBox x:Name="GroupName" Grid.Column="2" HorizontalAlignment="Center" Height="34" Margin="93,178,134,0" TextWrapping="Wrap" Text="Enter Group Name.." VerticalAlignment="Top" Width="194" Grid.ColumnSpan="5" GotFocus="GroupNameBoxGotFocus" TextChanged="GroupName_TextChanged" Background="#FFF7F6F6" Foreground="#FF999494" TextAlignment="Center" FontSize="18.667"/>
         <TextBlock x:Name="ObjectID" Grid.Column="2" HorizontalAlignment="Left" Margin="121,758,0,0" TextWrapping="Wrap" Text="ObjectID" VerticalAlignment="Top" Grid.ColumnSpan="5" Width="166" Height="37" Foreground="White" FontSize="18.667"/>
-        <Image x:Name="EmptyHeart" Source="E:\Google Drive\Tok\WinTOK\Resources\EmptyHeart.png" Grid.Column="2" HorizontalAlignment="Left" Height="59" Margin="10,487,0,0" VerticalAlignment="Top" Width="36" MouseDown="EmptyHeart_MouseDown" Visibility="Hidden" IsEnabled="True" RenderTransformOrigin="0.292,-3.788"/>
-        <Image x:Name="FullHeart" Source="E:\Google Drive\Tok\WinTOK\Resources\FullHeart.png" Grid.Column="2" HorizontalAlignment="Left" Height="59" Margin="10,487,0,0" VerticalAlignment="Top" Width="36" MouseDown="FullHeart_MouseDown" Visibility="Hidden" IsEnabled="False"/>
-        <Image x:Name="PlayBTN" Source="E:\Google Drive\Tok\WinTOK\Resources\PlayBTN.png" Grid.ColumnSpan="5" Grid.Column="2" HorizontalAlignment="Left" Height="134" Margin="135,296,0,0" VerticalAlignment="Top" Width="152" MouseDown="PlayBTN_MouseDown"/>
+        <Image x:Name="EmptyHeart" Source="C:\Users\Pavel\Documents\Visual Studio 2015\Projects\TOKRepo\WinTOK\WinTOK\Resources\EmptyHeart.png" Grid.Column="2" HorizontalAlignment="Left" Height="59" Margin="10,487,0,0" VerticalAlignment="Top" Width="36" MouseDown="EmptyHeart_MouseDown" Visibility="Hidden" IsEnabled="True" RenderTransformOrigin="0.292,-3.788"/>
+        <Image x:Name="FullHeart" Source="C:\Users\Pavel\Documents\Visual Studio 2015\Projects\TOKRepo\WinTOK\WinTOK\Resources\FullHeart.png" Grid.Column="2" HorizontalAlignment="Left" Height="59" Margin="10,487,0,0" VerticalAlignment="Top" Width="36" MouseDown="FullHeart_MouseDown" Visibility="Hidden" IsEnabled="False"/>
+        <Image x:Name="PlayBTN" Source="C:\Users\Pavel\Documents\Visual Studio 2015\Projects\TOKRepo\WinTOK\WinTOK\Resources\PlayBTN.png" Grid.ColumnSpan="5" Grid.Column="2" HorizontalAlignment="Left" Height="134" Margin="135,296,0,0" VerticalAlignment="Top" Width="152" MouseDown="PlayBTN_MouseDown"/>
         <Button x:Name="Record" Content="Record" Grid.Column="2" HorizontalAlignment="Left" Margin="93,118,0,0" VerticalAlignment="Top" Width="90" RenderTransformOrigin="-2.367,-1.068" Grid.ColumnSpan="2" Height="30" IsEnabled="True" Click="Record_Click" />
         <Button x:Name="Stop"   Content="Stop" Grid.ColumnSpan="4"  Grid.Column="3" HorizontalAlignment="Left" Margin="52,118,0,0" VerticalAlignment="Top" Width="90" Height="30" Click="Stop_Click"/>
         <TextBlock x:Name="TOKIndicator" Grid.Column="2" HorizontalAlignment="Left" Margin="70,604,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Grid.ColumnSpan="5" Width="300" FontSize="18.667" Foreground="#FF77BCF5" RenderTransformOrigin="0.479,0.44"/>

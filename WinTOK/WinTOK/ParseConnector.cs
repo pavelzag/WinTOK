@@ -89,11 +89,11 @@ namespace WinTOK
             public string __type { get; set; }
             public AudioFile audio_file { get; set; }
             public string className { get; set; }
-            public CreatedAt createdAt { get; set; }
+            public string createdAt { get; set; }
             public string group { get; set; }
             public string location { get; set; }
             public string objectId { get; set; }
-            public UpdatedAt updatedAt { get; set; }
+            public string updatedAt { get; set; }
         }
 
         public class RootObject
