@@ -43,7 +43,7 @@ namespace WinTOK
         {
             InitializeComponent();
             EmptyHeart.Visibility = Visibility.Hidden;
-            Record.Visibility = Visibility.Visible;
+            //Record.Visibility = Visibility.Visible;
         }
 
         private void PlayBTN_MouseDown(object sender, MouseButtonEventArgs e)

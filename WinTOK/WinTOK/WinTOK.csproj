@@ -168,6 +168,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\..\..\..\..\..\..\..\Program Files\Parse\main.js" />
+    <Resource Include="Resources\Background.png" />
+    <Resource Include="Resources\EmptyHeart.png" />
+    <Resource Include="Resources\FullHeart.png" />
+    <Resource Include="Resources\PlayBTN.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
